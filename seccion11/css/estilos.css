@@ -1,0 +1,17 @@
+*{
+    background-color: ghostwhite;
+    color: cornflowerblue;
+}
+
+h1, h2, p{
+    color: crimson;
+    text-align: center;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.texto_grande{
+    font-size: 20px;
+}

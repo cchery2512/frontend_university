@@ -1,0 +1,79 @@
+h1{
+    text-align: center;
+}
+
+.punteado{
+    border-style: dotted;
+    border-width: 10px 5px 3px 2px;
+    border-color: crimson hotpink gold lime;
+}
+
+.discontinuo{
+    border-style: dashed;
+    border-width: thick; /*thin, medium, tick*/
+    border-color: #457B9D;
+}
+
+.doble{
+    border: double blueviolet;
+    border-width: 10px 5px;
+}
+
+.solido{
+    border: solid red;
+    border-width: 5px;
+    border-radius: 20px;
+}
+
+.redondeado{
+    border: 5px solid blueviolet;
+    border-radius: 20px 0px 10px 0px;
+}
+
+.surco{
+    border: 10px groove;
+}
+
+.cresta{
+    border: 10px ridge;
+}
+
+.recuadro{
+    border: 10px inset;
+}
+
+.outset{
+    border: 10px outset;
+}
+
+.sin_borde{
+    border: none;
+}
+
+.oculto{
+    border: hidden;
+}
+
+.mixto{
+    border-style: dotted solid dashed double;
+}
+
+.rojo{
+    border: 10px solid firebrick;
+    /* background-color: firebrick; */
+}
+
+.rosa{
+    border: 10px dashed deeppink;
+    /* background-color: hotpink; */
+}
+
+.amarillo{
+    border: 10px double gold;
+    /* background-color: gold; */
+}
+
+.azul{
+    border: 10px dotted turquoise ;
+    /* background-color: turquoise; */
+}
