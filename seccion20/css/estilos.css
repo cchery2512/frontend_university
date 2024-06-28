@@ -12,9 +12,128 @@ div.relativo{
     border: 3px solid cornflowerblue;
 }
 
+div.relativo2{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    padding: 15px;
+    border: 3px solid blueviolet;
+    background-color: whitesmoke;
+}
+
 div.absoluto{
     position: absolute;
     bottom: 20px;
     right: 10px;
     border: 3px solid firebrick;
+}
+
+div.absoluto2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 112px;
+    z-index: -1;
+    border: 3px solid cornflowerblue;
+    background-color: whitesmoke;
+}
+
+div.sticky{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    border: 3px solid firebrick;
+}
+div.estatico{
+    position: static;
+    padding: 15px;
+    border: 3px solid greenyellow;
+    background-color: whitesmoke;
+}
+
+div.contenedor{
+    position: relative;
+    border: 3px dashed greenyellow;
+    width: 30%;
+    margin: auto;
+}
+
+img.imagen{
+    width: 100%;
+    opacity: 0.2;
+}
+
+div.centro{
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    /* border: 1px solid blue; */
+    font-size: 25px;
+}
+
+div.contenedor2{
+    border: 3px dashed greenyellow;
+    width: 30%;
+    height: 50px;
+    margin: auto;
+    overflow: auto;
+}
+
+div.contenedor3{
+    border: 3px dashed greenyellow;
+    width: 30%;
+    height: 80px;
+    overflow: auto;
+}
+
+div.contenedor3.flotado{
+    float: left;
+}
+
+div.contenedor3.flotado.custom1{
+    border: 3px dashed greenyellow;
+    float: left;
+}
+
+div.contenedor3.flotado.custom2{
+    border: 3px dashed cornflowerblue;
+    float: right;
+}
+
+div.contenedor3.custom3{
+    border: 3px dashed darkorange;
+    clear: both;
+    margin: auto;
+}
+
+div.contenedor4{
+    width: 80%;
+    height: 20%;
+    overflow: auto;
+    margin: auto;
+    border: 3px dashed #a8dadc;
+}
+
+span{
+    font-weight: bolder;
+    font-style: italic;
+    font-size: larger;
+    background-color: #a8dadc;
+    border: 1px solid #457b9d;
+    height: 50px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.menu{
+    list-style: none;
+    text-align: center;
+}
+.menu li{
+    display: inline-block;
+    padding: 15px;
+    margin: 20px;
+    background-color: #e63946;
+    border-radius: 5px;
 }
