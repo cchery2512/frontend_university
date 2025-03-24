@@ -11,4 +11,15 @@
     max-width: 350px;
     text-align: center;
     border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+#fecha{
+    letter-spacing: 10px;
+    font-size: 15px;
+}
+
+.animar{
+    border: rgb(0, 0, 0) 2px solid;
 }
