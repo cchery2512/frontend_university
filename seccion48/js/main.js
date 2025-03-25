@@ -55,8 +55,8 @@ const ingresos = [
 ];
 
 const egresos = [
-    new Egreso('Renta departamento', 900),
-    new Egreso('Ropa', 400)
+    new Egreso('Renta departamento', 1000),
+    new Egreso('Ropa', 500)
 ];
 
 let totalIngresos = () => {
@@ -77,6 +77,8 @@ let totalEgresos = () => {
 
 let cargarApp = () =>{
     cargarCabecero();
+    cargarData('ingresos');
+    cargarData('egresos');
 }
 
 let cargarCabecero = () => {
@@ -96,4 +98,59 @@ const formatoMoneda = (valor) =>{
 const formatoPorcentaje = (valor) =>{
     return valor.toLocaleString('en-US', {style: 'percent', minimumFractionDigits:2})
 }
+
+const cargarData = (type)=>{
+    let datosHTML = '';
+    for(let data of type == 'ingresos' ? ingresos : egresos){
+        datosHTML += crearDatoHTML(data, type);
+    }
+    document.getElementById(type == 'ingresos' ? 'lista-ingresos' : 'lista-egresos').innerHTML = datosHTML;
+}
+
+const crearDatoHTML = (data, type)=>{
+    let datoHTML = `
+    <div class="elemento limpiarEstilos">
+        <div class="elemento_descripcion">${data.descripcion}</div>
+        <div class="derecha limpiarEstilos">
+            <div class="elemento_valor">${type== 'egresos' ? '- ' : ''}${formatoMoneda(data.valor)}</div>
+            ${type == 'egresos' ? `<div class="elemento_porcentaje">${formatoPorcentaje(data.valor/totalEgresos())}</div>` : ''}
+            <div class="elemento_eliminar">
+                <button class="elemento_eliminar--btn">
+                    <ion-icon name="close-circle-outline" onclick="eliminarItem(${data.id}, '${type}')" ></ion-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    `;
+    return datoHTML;
+}
+
+function eliminarItem(id, type) {
+    let indiceEliminar = type == 'ingresos' ? ingresos.findIndex( ingreso => ingreso.id === id) : egresos.findIndex(egreso => egreso.id === id);
+    type == 'ingresos' ? ingresos.splice(indiceEliminar, 1) : egresos.splice(indiceEliminar, 1);
+    cargarCabecero();
+    type == 'ingresos' ? cargarData('ingresos') : cargarData('egresos');
+}
+
+let agregarDato = ()=> {
+    let forma       = document.forms['forma'];
+    let tipo        = forma['tipo'];
+    let descripcion = forma['descripcion'];
+    let valor       = forma['valor'];
+    if(descripcion.value !== '' && valor.value !== ''){
+        if(tipo.value === 'ingreso'){
+            ingresos.push(new Ingreso(descripcion.value, +valor.value));
+            reloadData('ingresos');
+        }else if(tipo.value === 'egreso'){
+            egresos.push(new Egreso(descripcion.value, +valor.value));
+            reloadData('egresos');
+        }
+    }
+}
+
+function reloadData(type){
+    cargarCabecero();
+    type == 'ingresos' ? cargarData('ingresos') : cargarData('egresos');
+}
+
 
